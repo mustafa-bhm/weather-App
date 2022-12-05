@@ -1,6 +1,5 @@
 * {
   padding: 0;
-
   margin: 0;
   font-family: "Montserrat", sans-serif;
 }
@@ -15,7 +14,6 @@ body {
   flex-direction: column;
   gap: 2rem;
   width: 90vw;
-  /* height: 100vh; */
   margin: auto;
   justify-content: center;
 }
@@ -52,7 +50,6 @@ input {
 }
 
 .top-level {
-  /* background-color: aqua; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,10 +57,7 @@ input {
 }
 /* ///// */
 .mid-level {
-  /* background-color: rgb(138, 138, 220); */
   display: flex;
-  /* justify-content: space-between; */
-
   align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
