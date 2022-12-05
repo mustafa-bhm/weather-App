@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>weather app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input">
+        <form action="">
+          <input type="text" />
+          <button class="search-btn">
+            <img src="./assets/search.svg" alt="" class="search-icon" />
+          </button>
+        </form>
+        <p class="error-message"></p>
+      </div>
+      <div class="top-level">
+        <h1 class="city">City name</h1>
+        <div class="date">DATE</div>
+      </div>
+      <div class="mid-level">
+        <div class="left-side">
+          <img class="icon1" src="" alt="" />
+          <div>
+            <h2 class="current-temp">Current temperature</h2>
+            <p class="description">Moderat rain</p>
+          </div>
+        </div>
+        <div class="right-side">
+          <div>
+            <div class="right-side-details">
+              <div><img class="icon" src="./assets/high.svg" alt="" /></div>
+              <div>
+                <h5>High</h5>
+                <p class="high">x</p>
+              </div>
+            </div>
+            <div class="right-side-details">
+              <div><img class="icon" src="./assets/low.svg" alt="" /></div>
+              <div>
+                <h5>low</h5>
+                <p class="low">x</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="right-side-details">
+              <div><img class="icon" src="./assets/wind.svg" alt="" /></div>
+              <div>
+                <h5>Wind</h5>
+                <p class="wind">x</p>
+              </div>
+            </div>
+            <div class="right-side-details">
+              <div><img class="icon" src="./assets/humidity.svg" alt="" /></div>
+              <div>
+                <h5>Humidity</h5>
+                <p class="humidity">x</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="right-side-details">
+              <div><img class="icon" src="./assets/sunrise.svg" alt="" /></div>
+              <div>
+                <h5>Sunrise</h5>
+                <p class="sunrise">x</p>
+              </div>
+            </div>
+            <div class="right-side-details">
+              <div><img class="icon" src="./assets/sunset.svg" alt="" /></div>
+              <div>
+                <h5>Sunset</h5>
+                <p class="sunset">x</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="bottom-level"></div>
+    </div>
+  </body>
+  <script type="module" src="./index.js"></script>
+</html>
