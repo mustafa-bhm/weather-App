@@ -1,9 +1,10 @@
+const body = document.querySelector("body");
 const inputField = document.querySelector("input");
 const searchButton = document.querySelector(".search-btn");
 const dateField = document.querySelector(".date");
 const city = document.querySelector(".city");
 const errorMessage = document.querySelector(".error-message");
-///
+
 const currentTemp = document.querySelector(".current-temp");
 const icon1 = document.querySelector(".icon1");
 const high = document.querySelector(".high");
@@ -14,24 +15,22 @@ const sunrise = document.querySelector(".sunrise");
 const sunset = document.querySelector(".sunset");
 const description = document.querySelector(".description");
 
-//// Forcast
 const bottomLevel = document.getElementById("bottom-level");
 const forcastTime = document.querySelector(".forcast-time");
 const forcatsIcon = document.querySelector(".forcast-icon");
 const forcatsTemp = document.querySelector(".forcast-temp");
 
-// Background
-const body = document.querySelector("body");
-
+// to store data for current day weather
 let todayData = {};
 
+// to store data for hourly forcast
 let dataHourly = {};
+
 let cityName = "";
 
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
   cityName = inputField.value;
-
   fetchData(cityName);
   inputField.value = "";
 });
@@ -43,6 +42,7 @@ dateField.innerHTML = date;
 let unitMetric = "metric";
 let unitF = "imperial";
 
+// to fetch weather data
 function fetchData(name) {
   const urlCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?q=${name}&units=${unitMetric}&appid=5c7161a032288d2161fda449ec9b5c07`;
   const urlHourlyForcast = `https://api.openweathermap.org/data/2.5/forecast?q=${name}&units=${unitMetric}&appid=5c7161a032288d2161fda449ec9b5c07`;
@@ -61,12 +61,12 @@ function displayCurrentDayWeather(data) {
   if (data.message === "city not found")
     return (errorMessage.innerHTML = `${cityName} not found !`);
 
-  // to update city name on the page
   errorMessage.innerHTML = "";
+
+  // to update city name and current weather data  on the page
   city.innerHTML = cityName;
   currentTemp.innerHTML = Math.floor(data.main.temp) + " ℃";
   description.innerHTML = data.weather[0].description;
-
   icon1.src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
   high.innerHTML = Math.floor(data.main.temp_max) + " ℃";
   low.innerHTML = Math.floor(data.main.temp_min) + " ℃";
@@ -83,9 +83,11 @@ function displayCurrentDayWeather(data) {
     timeZone: "Canada/Mountain",
     timeStyle: "short",
   });
+  // dynamicly change background
   changeBg();
 }
 
+// to display hourly forcast
 function display24HForcast(data) {
   let next24HoursForcast = data.list.slice(1, 8);
   clearElement(bottomLevel);
@@ -93,7 +95,6 @@ function display24HForcast(data) {
     let div = document.createElement("div");
     div.classList.add("forcast");
     div.innerHTML = `
-
       <p class="forcast-time">${formatAMPM(new Date(element.dt_txt))}</p>
       <img
         class="forcast-icon"
